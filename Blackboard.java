@@ -1,6 +1,7 @@
-class Client
+public class Blackboard
 {
-    public static void main(String[] args) {
-        System.out.println("r");
+    public Blackboard()
+    {
+        System.out.println("Hello Blackboard");
     }
 }
