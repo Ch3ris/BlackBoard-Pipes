@@ -26,6 +26,6 @@ public class Client
         String[] fileInput=r.readFile();
         String[][] listBuyers=createListBuyers();
         Pipes_Filters p=new Pipes_Filters(fileInput,listBuyers);
-        Blackboard b=new Blackboard();
+        Blackboard b=new Blackboard(fileInput,listBuyers);
     }
 }
