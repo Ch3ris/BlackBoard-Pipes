@@ -1,4 +1,4 @@
 John, Laptop, ok, PICTURE
 Mary, Phone, @#$%), IMAGE
 Peter, Phone, GREAT, ManyPictures
-Ann, Book, So GOOD, Image
+Ann, Book, So GOOD+++, Image

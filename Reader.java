@@ -9,7 +9,7 @@ public class Reader
     {
         this.input=input;
     }
-    public String readFile()
+    public String[] readFile()
     {
         String output="";
         //read from file.
@@ -21,6 +21,7 @@ public class Reader
             {
                 output+=fScanner.nextLine()+"\n";
             }
+            fScanner.close();
             
         }
         catch(Exception e)
@@ -28,6 +29,6 @@ public class Reader
             System.out.println(e);
         }
         //return lines read.
-        return output;
+        return output.split("\n");
     }
 }
