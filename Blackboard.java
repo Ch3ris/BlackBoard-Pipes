@@ -21,6 +21,7 @@ public class Blackboard
 {
     String[] input;
     String[][] listBuyers;
+    String[] finalResult;
     Controller c;
     public Blackboard(String[] input,String[][] listBuyers)
     {
@@ -33,9 +34,18 @@ public class Blackboard
     }
     public void executeBlackboardAndUpdate()
     {
-        System.out.println("Testing");
+        // System.out.println("Testing");
         c.executeCommand(input,this);
-        for(String s:input)
+        printFinalResult();
+    }
+    public void setFinalResult(String[] data)
+    {
+        finalResult=data;
+    }
+    public void printFinalResult()
+    {
+        System.out.println("Final result from Blackboard Implementation");
+        for(String s:finalResult)
         {
             System.out.println(s);
         }

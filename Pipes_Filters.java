@@ -185,7 +185,7 @@ public class Pipes_Filters implements ProductNotReviewed,ProfanitiesInReview,Pol
             String[] tokenizedString=s.split(", ");
             String review = tokenizedString[2];
             review=review.replace("http","");
-            System.out.println(review);
+            // System.out.println(review);
             String newString="";
             for(int i=0;i<4;i++)
             {
@@ -215,6 +215,7 @@ public class Pipes_Filters implements ProductNotReviewed,ProfanitiesInReview,Pol
         input=resize(input);
         input=checkHTTP(input);
         input=attachClassification(input);
+        System.out.println("Final result from Pipes/Filters Implementation");
         for(String s:input)
         {
             System.out.println(s);

@@ -30,9 +30,13 @@ public class Client
         KnowledgeSource[] k={
                                 new checkProductSource(listBuyers),
                                 new checkProfanitiesSource(),
-                                new checkPropagandaSource()
+                                new checkPropagandaSource(),
+                                new ResizeSource(),
+                                new HTTPSource(),
+                                new attachClassificationSource()
                             };
         b.addKnowledgeSources(k);
+        System.out.println();
         b.executeBlackboardAndUpdate();
     }
 }
