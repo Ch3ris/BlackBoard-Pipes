@@ -27,5 +27,12 @@ public class Client
         String[][] listBuyers=createListBuyers();
         Pipes_Filters p=new Pipes_Filters(fileInput,listBuyers);
         Blackboard b=new Blackboard(fileInput,listBuyers);
+        KnowledgeSource[] k={
+                                new checkProductSource(listBuyers),
+                                new checkProfanitiesSource(),
+                                new checkPropagandaSource()
+                            };
+        b.addKnowledgeSources(k);
+        b.executeBlackboardAndUpdate();
     }
 }

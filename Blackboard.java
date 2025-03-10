@@ -19,8 +19,26 @@ Iteration: The controller repeats the activation and execution steps until a sat
 
 public class Blackboard
 {
+    String[] input;
+    String[][] listBuyers;
+    Controller c;
     public Blackboard(String[] input,String[][] listBuyers)
     {
-        //TODO        
+        this.input=input;
+        this.listBuyers=listBuyers;
+    }
+    public void addKnowledgeSources(KnowledgeSource[] k)
+    {
+        c=new Controller(k);
+    }
+    public void executeBlackboardAndUpdate()
+    {
+        System.out.println("Testing");
+        c.executeCommand(input,this);
+        for(String s:input)
+        {
+            System.out.println(s);
+        }
     }
 }
+
