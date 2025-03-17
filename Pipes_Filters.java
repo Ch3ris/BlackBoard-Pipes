@@ -23,7 +23,7 @@ public class Pipes_Filters
         pipeLine=r.sort(pipeLine);
         for(PipeCustom p : pipeLine)
         {
-            System.out.println("iterating through pipes");
+            // System.out.println("iterating through pipes");
             input=p.execute(input);
 
         }

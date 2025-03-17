@@ -37,7 +37,7 @@ public class Client
         };
 
         p.addPipeLine(pipes);
-        System.out.println();
+        // System.out.println();
         p.execute();
         
 
