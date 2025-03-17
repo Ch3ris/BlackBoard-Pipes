@@ -5,11 +5,12 @@ import java.util.HashMap;
 public class Pipes_Filters
 {
     private PipeCustom[] pipeLine;
-
+    private Arranger r;
     String[] input;
     public Pipes_Filters(String[] input)
     {
         this.input=input;
+        r=new Arranger(input);
     }
 
     public void addPipeLine(PipeCustom[] pipeLine)
@@ -19,8 +20,10 @@ public class Pipes_Filters
 
     public void execute()
     {
+        pipeLine=r.sort(pipeLine);
         for(PipeCustom p : pipeLine)
         {
+            System.out.println("iterating through pipes");
             input=p.execute(input);
 
         }

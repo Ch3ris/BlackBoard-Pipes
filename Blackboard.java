@@ -21,31 +21,34 @@ public class Blackboard
 {
     String[] input;
     String[][] listBuyers;
-    String[] finalResult;
-    Controller c;
+    KnowledgeSource[] sources;
+    private Arranger r;
     public Blackboard(String[] input,String[][] listBuyers)
     {
         this.input=input;
         this.listBuyers=listBuyers;
+        r=new Arranger(input);
     }
+
     public void addKnowledgeSources(KnowledgeSource[] k)
     {
-        c=new Controller(k);
+        this.sources=k;
     }
     public void executeBlackboardAndUpdate()
     {
         // System.out.println("Testing");
-        c.executeCommand(input,this);
+        this.sources=r.sort(sources);
+        System.out.println("testing");
+        for(KnowledgeSource k:sources)
+        {
+           k.executeAndProduce(input, this);
+        } 
         printFinalResult();
-    }
-    public void setFinalResult(String[] data)
-    {
-        finalResult=data;
     }
     public void printFinalResult()
     {
         System.out.println("Final result from Blackboard Implementation");
-        for(String s:finalResult)
+        for(String s:input)
         {
             System.out.println(s);
         }
