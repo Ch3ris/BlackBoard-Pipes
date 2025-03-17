@@ -13,19 +13,6 @@ public class Arranger{
     {
         boolean flag=false;
 
-        System.out.println("Transformed values:");
-        for(String s:transformed)
-        {
-            System.out.println(s);
-        }
-        System.out.println();
-
-        System.out.println("Input values:");
-        for(String s:input)
-        {
-            System.out.println(s);
-        }
-        System.out.println();
         for(int i=0;i<input.length;i++)
         {
             String s1=transformed[i];
@@ -37,8 +24,6 @@ public class Arranger{
 
             for(int j=0;j<s1Tokenized.length;j++)
             {
-                //if not equal, transformation performed
-                System.out.println(s1Tokenized[j]+" "+s2Tokenized[j]);
                 if(!s1Tokenized[j].equals(s2Tokenized[j]))
                     flag=true;
             }
@@ -54,7 +39,7 @@ public class Arranger{
 
         for(PipeCustom pipe:p)
         {
-            // System.out.println("Testing sorting pipes filters");
+            
             //logic for seeing if its a transofrmation or elimination pipe
             String[] tmp=pipe.execute(input);
             if(tmp.length!=inputClone.length)
@@ -113,17 +98,9 @@ public class Arranger{
                     }
             }
         }
-        // for(String s:b.input)
-        // {
-        //     System.out.println(s);
-        // }
-        // System.out.println();
+       
         b.input=aux;
-        // for(String s:b.input)
-        // {
-        //     System.out.println(s);
-        // }
-        // System.out.println();
+
 
         ArrayList<KnowledgeSource> result=new ArrayList<>();
 

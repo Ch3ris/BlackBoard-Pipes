@@ -20,38 +20,9 @@ public class Pipes_Filters
 
     public void execute()
     {
-        for(String s:input)
-        {
-            System.out.println(s);
-        }
         String[] tmp=input.clone();
-        // System.out.println("Input before sorting the pipeline:");
-        // for(String s:tmp)
-        // {   
-        //     System.out.println(s);
-        // }
-        System.out.println("Before sorting the pipes:");
-        System.out.println();
-        for(PipeCustom p:pipeLine)
-        {
-            System.out.println(p);
-        }
         pipeLine=r.sort(pipeLine);
-        
-        //System.out.println();
         input=tmp;
-
-        System.out.println("After sorting the pipes:");
-        System.out.println();
-        for(PipeCustom p:pipeLine)
-        {
-            System.out.println(p);
-        }
-        // System.out.println("Input after sorting the pipeline:");
-        // for(String s:input)
-        // {
-        //     System.out.println(s);
-        // }
         for(PipeCustom p : pipeLine)
         {
             // System.out.println("iterating through pipes");

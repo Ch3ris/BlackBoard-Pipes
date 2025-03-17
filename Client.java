@@ -26,21 +26,16 @@ public class Client
         String[] fileInput=r.readFile();
         String[][] listBuyers=createListBuyers();
 
-        for(String s:fileInput)
-        {
-            System.out.println(s);
-        }
-
         String[] copy=fileInput.clone();
         Pipes_Filters p=new Pipes_Filters(fileInput);
 
         PipeCustom[] pipes={
-            new ResizeAttachment(),
-            new SentimentalAnalysis(),
+            new RemoveWebsiteLinks(),
             new ProductNotReviewed(listBuyers),
             new ProfanitiesInReview(),
-            new RemoveWebsiteLinks(),
+            new ResizeAttachment(),
             new PoliticalPropagandaReview(),
+            new SentimentalAnalysis(),
         };
 
         p.addPipeLine(pipes);
