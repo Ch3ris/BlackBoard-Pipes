@@ -37,7 +37,20 @@ public class Blackboard
     public void executeBlackboardAndUpdate()
     {
         // System.out.println("Testing");
+        System.out.println("Before sorting the sources:");
+        for(KnowledgeSource k:sources)
+        {
+            System.out.println(k);
+        }
+        System.out.println();
         this.sources=r.sort(sources,this);
+        System.out.println("After sorting the sources:");
+        for(KnowledgeSource k:sources)
+        {
+            System.out.println(k);
+        }
+        System.out.println();
+
         for(KnowledgeSource k:sources)
         {
            k.executeAndProduce(input, this);

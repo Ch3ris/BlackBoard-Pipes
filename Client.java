@@ -25,14 +25,21 @@ public class Client
         Reader r=new Reader(input);
         String[] fileInput=r.readFile();
         String[][] listBuyers=createListBuyers();
+
+        for(String s:fileInput)
+        {
+            System.out.println(s);
+        }
+
+        String[] copy=fileInput.clone();
         Pipes_Filters p=new Pipes_Filters(fileInput);
 
         PipeCustom[] pipes={
+            new ResizeAttachment(),
             new SentimentalAnalysis(),
             new ProductNotReviewed(listBuyers),
             new ProfanitiesInReview(),
             new RemoveWebsiteLinks(),
-            new ResizeAttachment(),
             new PoliticalPropagandaReview(),
         };
 
@@ -41,13 +48,13 @@ public class Client
         p.execute();
         
 
-        Blackboard b=new Blackboard(fileInput,listBuyers);
+        Blackboard b=new Blackboard(copy,listBuyers);
         KnowledgeSource[] k={
+                                new HTTPSource(),
                                 new checkProductSource(listBuyers),
                                 new checkProfanitiesSource(),
-                                new checkPropagandaSource(),
                                 new ResizeSource(),
-                                new HTTPSource(),
+                                new checkPropagandaSource(),
                                 new attachClassificationSource()
                             };
         b.addKnowledgeSources(k);
