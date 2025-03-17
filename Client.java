@@ -25,7 +25,21 @@ public class Client
         Reader r=new Reader(input);
         String[] fileInput=r.readFile();
         String[][] listBuyers=createListBuyers();
-        Pipes_Filters p=new Pipes_Filters(fileInput,listBuyers);
+        Pipes_Filters p=new Pipes_Filters(fileInput);
+
+        PipeCustom[] pipes={
+            new SentimentalAnalysis(),
+            new ProductNotReviewed(listBuyers),
+            new ProfanitiesInReview(),
+            new RemoveWebsiteLinks(),
+            new ResizeAttachment(),
+            new PoliticalPropagandaReview(),
+        };
+
+        p.addPipeLine(pipes);
+        p.execute();
+        
+
         Blackboard b=new Blackboard(fileInput,listBuyers);
         KnowledgeSource[] k={
                                 new checkProductSource(listBuyers),
